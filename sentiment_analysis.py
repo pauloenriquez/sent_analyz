@@ -32,7 +32,7 @@ def main():
         st.write("Sentiment Analysis Results:")
         for text in text_here:
             sentiment_result = analyze_sentiment(text)
-            st.write(f"Sentiment for '{text}': {sentiment_result}")
+            st.write(f"'{sentiment_result}': {text}")
 
 if __name__ == "__main__":
     main()
