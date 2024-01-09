@@ -32,7 +32,7 @@ def main():
         st.write("Sentiment Analysis Results:")
         for text in text_here:
             if text == 'can i have money':
-                st.write(f"'{sentiment_result}': {text}")
+                st.write(f"ULOL :D ")
             else:
                 sentiment_result = analyze_sentiment(text)
                 st.write(f"'{sentiment_result}': {text}")
