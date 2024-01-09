@@ -1,3 +1,4 @@
+import streamlit as st
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 nltk.download('vader_lexicon')
@@ -17,16 +18,21 @@ def analyze_sentiment(text):
     else:
         return 'Neutral'
 
-print("Enter text or list of text (press Enter after each text, type 'done' when finished):")
+def main():
+    st.title("Sentiment Analysis with Streamlit")
 
-text_here = []
-while True:
-    user_input = input()
-    if user_input.lower() == 'done':
-        break
-    text_here.append(user_input)
+    st.write("Enter text or list of text (press Enter after each text, type 'done' when finished):")
 
-# Example usage
-for text in text_here:
-    sentiment_result = analyze_sentiment(text)
-    print(f"Sentiment for '{text}': {sentiment_result}")
+    text_here = st.text_area("Input Text", "").split('\n')
+
+    # Remove any empty strings from the list
+    text_here = list(filter(lambda x: x.strip() != '', text_here))
+
+    if st.button("Analyze Sentiment"):
+        st.write("Sentiment Analysis Results:")
+        for text in text_here:
+            sentiment_result = analyze_sentiment(text)
+            st.write(f"Sentiment for '{text}': {sentiment_result}")
+
+if __name__ == "__main__":
+    main()
