@@ -21,7 +21,7 @@ def analyze_sentiment(text):
 def main():
     st.title("Sentiment Analysis with Streamlit")
 
-    st.write("Enter text or list of text (press Enter after each text")
+    st.write("Enter text or list of text (press Enter after each text)")
 
     text_here = st.text_area("Input Text", "").split('\n')
 
