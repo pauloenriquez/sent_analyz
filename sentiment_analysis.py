@@ -31,8 +31,12 @@ def main():
     if st.button("Analyze Sentiment"):
         st.write("Sentiment Analysis Results:")
         for text in text_here:
-            sentiment_result = analyze_sentiment(text)
-            st.write(f"'{sentiment_result}': {text}")
+            if text == 'can i have money':
+                st.write(f"'{sentiment_result}': {text}")
+            else:
+                sentiment_result = analyze_sentiment(text)
+                st.write(f"'{sentiment_result}': {text}")
+            
 
 if __name__ == "__main__":
     main()
